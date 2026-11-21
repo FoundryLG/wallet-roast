@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Wallet Roast</title>
+  </head>
+  <body>
+    <main class="page">
+      <h1>Wallet Roast</h1>
+      <p class="sub">Paste a public Solana wallet. Get a one-line roast.</p>
+
+      <form id="form" class="form" autocomplete="off">
+        <input id="address" type="text" placeholder="Wallet address" spellcheck="false" aria-label="Wallet address" />
+        <button id="go" type="submit">Roast it</button>
+      </form>
+      <p id="error" class="error" role="alert" hidden></p>
+
+      <section id="card" class="card" hidden>
+        <p class="card-label">WALLET ROAST</p>
+        <p id="roast" class="roast"></p>
+        <p id="addr" class="addr"></p>
+        <ul id="stats" class="stats"></ul>
+        <p class="card-foot">walletroast · read-only</p>
+      </section>
+
+      <div id="actions" class="actions" hidden>
+        <button id="download" type="button">Download card</button>
+        <button id="copy" type="button">Copy roast</button>
+      </div>
+
+      <p class="note">Only public data is read. No wallet connection, no keys, no signatures.</p>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
