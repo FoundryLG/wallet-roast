@@ -6,8 +6,11 @@ import { SIGNATURE_LIMIT, type TokenHolding, type WalletData } from "./roast";
 const TOKEN_PROGRAM = address("TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA");
 const TOKEN_2022_PROGRAM = address("TokenzQdBNbLqP5VEhdkAS6EPFLC1PHnBqCXEpPxuEb");
 
+// Deployed site: go through the /api/rpc proxy (the public RPC 403s browsers).
+// Local dev: VITE_RPC_URL if set, otherwise the public RPC (works from localhost).
 const RPC_URL: string =
-  import.meta.env.VITE_RPC_URL ?? "https://api.mainnet-beta.solana.com";
+  import.meta.env.VITE_RPC_URL ??
+  (import.meta.env.PROD ? `${location.origin}/api/rpc` : "https://api.mainnet-beta.solana.com");
 
 const rpc = createSolanaRpc(RPC_URL);
 
